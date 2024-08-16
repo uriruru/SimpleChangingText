@@ -1,0 +1,39 @@
+<style>
+  .title-container {
+    font-family: sans-serif;
+    color: black;
+    line-height: 17px;
+  }
+
+  .role {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: gray;
+    display: inline-block;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 1; }
+    45%, 55% { opacity: 0; }
+  }
+</style>
+
+<h3 class="title-container">ReuJames <br>
+  <span id="role-text" class="role">Frontend Developer</span>
+</h3>
+
+<script>
+  const roleText = document.getElementById('role-text');
+  const roles = ['Frontend Developer', 'UI & UX Designer'];
+  let currentRole = 0;
+
+  setInterval(() => {
+    roleText.style.opacity = '0';
+    setTimeout(() => {
+      currentRole = (currentRole + 1) % roles.length;
+      roleText.textContent = roles[currentRole];
+      roleText.style.opacity = '1';
+    }, 500); // Match this with CSS transition duration
+  }, 5000);
+</script>
